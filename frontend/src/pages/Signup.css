@@ -1,0 +1,102 @@
+/* Signup.css */
+
+/* Main container for the signup form */
+.signup-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ensure the container takes full viewport height */
+    background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+    padding: 20px;
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    overflow-y: auto; /* Allow scrolling when content overflows */
+}
+
+/* Form heading */
+.signup-container h2 {
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Signup form */
+.signup-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    transition: all 0.3s ease;
+    overflow-y: auto; /* Ensure form can scroll within itself */
+}
+
+/* Input fields */
+.signup-container form input,
+.signup-container form select {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: inset 0px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+/* Placeholder text styling */
+.signup-container form input::placeholder,
+.signup-container form select {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+/* Focus effect on input fields and select */
+.signup-container form input:focus,
+.signup-container form select:focus {
+    background-color: #fff;
+    outline: none;
+    box-shadow: 0px 0px 5px rgba(0, 150, 250, 0.5);
+}
+
+/* Submit button */
+.signup-container form button {
+    padding: 12px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 100%;
+    max-width: 400px;
+}
+
+.signup-container form button:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .signup-container {
+        padding: 10px;
+    }
+
+    .signup-container form {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .signup-container form button {
+        font-size: 0.9rem;
+    }
+}

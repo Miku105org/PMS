@@ -1,0 +1,264 @@
+/* General Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #1a1a1a, #111b88);
+  color: white;
+  overflow: hidden;
+}
+
+/* Container */
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: normal;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Login Box */
+.login-box {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 40px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 1s ease-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.login-box:hover {
+  transform: scale(1.05);
+}
+
+/* Header */
+.login-box h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* Input Fields */
+.input-box {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 12px 10px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #fff;
+  outline: none;
+  color: white;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.input-box label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #fff;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #ff267e;
+  font-size: 14px;
+}
+
+/* Forgot Password */
+.forgot-pass {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.forgot-pass a {
+  color: #03071e;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.forgot-pass a:hover {
+  color: #fff;
+}
+
+/* Button */
+.btn {
+  background-color: #ff267e;
+  color: white;
+  padding: 12px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #e51c63;
+  transform: scale(1.1);
+}
+
+/* Sign Up Link */
+.signup-link {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.signup-link a {
+  color: #03071e;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.signup-link a:hover {
+  color: #fff;
+}
+
+/* Background Elements */
+.background-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.background-elements .element {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  filter: blur(80px);
+  animation: move 15s infinite;
+}
+
+.background-elements .element:nth-child(1) {
+  width: 200px;
+  height: 200px;
+  top: 10%;
+  left: 20%;
+  animation-duration: 10s;
+}
+
+.background-elements .element:nth-child(2) {
+  width: 150px;
+  height: 150px;
+  top: 30%;
+  left: 70%;
+  animation-duration: 12s;
+}
+
+.background-elements .element:nth-child(3) {
+  width: 100px;
+  height: 100px;
+  top: 60%;
+  left: 40%;
+  animation-duration: 14s;
+}
+
+.background-elements .element:nth-child(4) {
+  width: 250px;
+  height: 250px;
+  top: 80%;
+  left: 10%;
+  animation-duration: 16s;
+}
+
+/* Shooting Stars */
+.shooting-star {
+  position: absolute;
+  width: 2px;
+  height: 100px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+  animation: shoot 2s ease-in-out infinite;
+  border-radius: 50%;
+  transform-origin: center;
+}
+
+.shooting-star:nth-child(5) {
+  top: 10%;
+  left: 20%;
+  animation-delay: 1s;
+  animation-duration: 4s;
+}
+
+.shooting-star:nth-child(6) {
+  top: 30%;
+  left: 70%;
+  animation-delay: 3s;
+  animation-duration: 5s;
+}
+
+.shooting-star:nth-child(7) {
+  top: 50%;
+  left: 40%;
+  animation-delay: 2s;
+  animation-duration: 6s;
+}
+
+.shooting-star:nth-child(8) {
+  top: 70%;
+  left: 60%;
+  animation-delay: 4s;
+  animation-duration: 3.5s;
+}
+
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes move {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-100px) translateX(100px);
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+}
+
+@keyframes shoot {
+  0% {
+    opacity: 0;
+    transform: translateX(0) translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(300px) translateY(-300px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(600px) translateY(-600px);
+  }
+}
+
+
+/* new css  */

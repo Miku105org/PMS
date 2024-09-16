@@ -1,0 +1,68 @@
+/* Footer.css */
+
+/* Footer container */
+.footer {
+  background-color: #2c3e50; /* Dark background color for contrast */
+  color: #ecf0f1; /* Light text color */
+  text-align: center;
+  padding: 20px 0;
+  font-size: 14px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer copyright text */
+.footer p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+/* Social media links container */
+.social-links {
+  margin-top: 10px;
+}
+
+/* Individual social link styling */
+.social-links a {
+  color: #ecf0f1;
+  text-decoration: none;
+  margin: 0 10px;
+  padding: 10px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect for links */
+.social-links a:hover {
+  color: #3498db; /* Change color to blue on hover */
+  transform: scale(1.1); /* Slight zoom effect */
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+  .footer {
+    padding: 15px 0;
+  }
+
+  .social-links a {
+    margin: 0 5px;
+  }
+}
+
+/* Make sure footer stays at the bottom even when content is short */
+body, html {
+  height: 100%;
+}
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content-wrapper {
+  flex: 1; /* This ensures that the content takes up most of the height and pushes footer down */
+}

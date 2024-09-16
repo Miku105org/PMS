@@ -1,0 +1,76 @@
+/* Navbar.css */
+
+
+/* Main navbar container */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #0b0214, #2c003e);
+  padding:3rem; /* Default padding */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Default shadow */
+  border-bottom: 2px solid #4b004d; /* Border for sleek look */
+  transition: padding 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+.navbar.minimized {
+  padding: 1rem !important; /* Force reduced padding for testing */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3); /* Smaller shadow for minimized state */
+}
+
+/* Logo styling */
+.logo a {
+  color: #ffffff;
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+/* Hover effect on logo */
+.logo a:hover {
+  color: #f39c12; /* Change color on hover for a modern effect */
+}
+
+/* Navigation links container */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+/* Navigation link styling */
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 25px; /* Rounded edges for a modern look */
+  background: rgba(255, 255, 255, 0.1); /* Light background for links */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+/* Hover effect on navigation links */
+.nav-links a:hover {
+  background: rgba(255, 255, 255, 0.2); /* Slightly darker background */
+  transform: translateY(-2px); /* Subtle lift effect */
+}
+
+/* Active link styling */
+.nav-links a.active {
+  background-color: #f39c12; /* Highlight active link */
+  color: #0b0214;
+}
+
+/* Add a responsive design for smaller screens */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+}
