@@ -1,27 +1,39 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const authRoutes = require('./routes/authRoutes');
-const resumeRoutes = require('./routes/resume');
-app.use('/api/resume', resumeRoutes);
-const companyRoutes = require('./routes/company');
-app.use('/api/companies', companyRoutes);
+const dotenv = require('dotenv');
+
+// const DB= 'mongodb+srv://priyanshbhatt2003:<miku105>@cluster0.0ra9z.mongodb.net/placement?retryWrites=true&w=majority&appName=Cluster0'
+const DB  = `mongodb+srv://priyansh2003:miku105@cluster0.0ra9z.mongodb.net/placement`
+// Import routes
 const authRoutes = require('./routes/auth');
-app.use('/api/auth', authRoutes);
+const resumeRoutes = require('./routes/resume');
+const companyRoutes = require('./routes/company');
 
-
-
+// Initialize Express app
 const app = express();
-require('dotenv').config();
+dotenv.config();
 
+// Middleware
 app.use(cors());
-app.use(express.json());
+app.use(express.json()); // Middleware to parse JSON bodies
 
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('Connected to MongoDB'))
-  .catch(err => console.log(err));
+// Connect to MongoDB
 
-app.use('/api/auth', authRoutes);
+mongoose.connect(DB, {
+  useNewUrlParser: true,
+  // useCreateIndex: true,
+  useUnifiedTopology: true,
+  // useFindAndModify: false
+}
+).then(() => console.log('Connected to MongoDB'))
+.catch(err => console.error('Failed to connect to MongoDB', err));
 
+// Route handlers
+app.use('/api/v1/auth', authRoutes); // Authentication routes
+app.use('/api/v1/resume', resumeRoutes); // Resume management routes
+app.use('/api/companies', companyRoutes); // Company-related routes
+
+// Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

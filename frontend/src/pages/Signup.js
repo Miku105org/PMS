@@ -9,18 +9,55 @@ const Signup = () => {
     phone: '',
     rollNumber: '',
     branch: '',
-    yearOfStudy: ''
+    yearOfStudy: '',
+    role: '', // Add role field
+    password: '', // Add password field
+    confirmPassword: '' // Add confirm password field
   });
+
+  const [message, setMessage] = useState(''); // State for success/error message
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle the form submission logic here
-    console.log('Form Data Submitted:', formData);
+    if (formData.password !== formData.confirmPassword) {
+      setMessage('Passwords do not match.');
+      return;
+    }
+
+    try {
+      const response = await fetch('http://localhost:5000/api/auth/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          phone: formData.phone,
+          rollNumber: formData.rollNumber,
+          branch: formData.branch,
+          yearOfStudy: formData.yearOfStudy,
+          role: formData.role,
+          password: formData.password
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setMessage('Signup successful! Your data has been integrated into the backend.');
+        // Optionally redirect or clear the form
+      } else {
+        setMessage(`Error: ${data.message}`); // Show error message if signup fails
+      }
+    } catch (error) {
+      console.error('Signup Error:', error);
+      setMessage('Error: An unexpected error occurred.');
+    }
   };
 
   return (
@@ -65,7 +102,6 @@ const Signup = () => {
           placeholder="Roll Number"
           value={formData.rollNumber}
           onChange={handleChange}
-          required
         />
         <select
           name="branch"
@@ -94,8 +130,36 @@ const Signup = () => {
           <option value="3rd Year">3rd Year</option>
           <option value="4th Year">4th Year</option>
         </select>
+        <select
+          name="role"
+          value={formData.role}
+          onChange={handleChange}
+          required
+        >
+          <option value="" disabled>Select Role</option>
+          <option value="student">Student</option>
+          <option value="company">Company</option>
+          <option value="institute">Institute</option>
+        </select>
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          value={formData.password}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="password"
+          name="confirmPassword"
+          placeholder="Confirm Password"
+          value={formData.confirmPassword}
+          onChange={handleChange}
+          required
+        />
         <button type="submit">Create Account</button>
       </form>
+      {message && <p className="message">{message}</p>} {/* Display message */}
     </div>
   );
 };

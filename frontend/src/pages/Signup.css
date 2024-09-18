@@ -100,3 +100,10 @@
         font-size: 0.9rem;
     }
 }
+
+.message {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: green; /* or red for errors */
+  }
+  

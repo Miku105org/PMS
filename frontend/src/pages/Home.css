@@ -1,127 +1,149 @@
 /* Home.css */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  height: 100%; /* Ensure body takes full height */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
 
 .home-container {
   display: flex;
   flex-direction: column;
   font-family: Arial, sans-serif;
-  min-height: 100vh;
-  padding: 20px;
-  background: #f5f5f5; /* Light background for the container */
+  min-height: 100vh; /* Make sure container takes at least full viewport height */
+  padding: 20 px;
+  background: url('C:\Users\priya\OneDrive\Documents\Placement Management System\Placement-Management-System\frontend\src\images\bg.jpg');
+  background: linear-gradient(135deg, #1a1a1a, #111b88); /* Gradient background */
+  background-size: cover; /* Ensure the background covers the entire container */
+  overflow: auto !important;
 }
 
-/* Resume Builder Button Styling */
+.hero-section {
+  background: linear-gradient(135deg, rgba(76, 10, 68, 0.925), rgba(7, 10, 87, 0.837)), url('C:\Users\priya\OneDrive\Documents\Placement Management System\Placement-Management-System\frontend\src\images\bg.jpg') no-repeat center center;
+  background-size: cover;
+  padding: 60px 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(148, 34, 99, 0.975);
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.hero-section p {
+  font-size: 1.25rem;
+  color: #666;
+}
+
 .btn-resume-builder {
-  margin: 20px 0;
+  display: block;
+  margin: 20px auto;
   padding: 10px 20px;
-  background: #007bff;
+  background-color: #007bff;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s;
 }
 
 .btn-resume-builder:hover {
-  background: #0056b3;
+  background-color: #0056b3;
 }
 
-/* Flex container for the content */
 .content-wrapper {
   display: flex;
   justify-content: space-between;
+  padding: 20px;
+  flex-grow: 1; /* Allows it to grow and fill the remaining space */
   width: 100%;
-  max-width: 12000px; /* Adjust this value as needed */
-  margin: 0 auto;
-  overflow: auto; /* Ensure overflow handling */
+  height: auto;
+  overflow: auto; /* Allows vertical scrolling if content overflows */
+  box-sizing: border-box; /* Includes padding in width/height calculations */
 }
 
-/* Left Section */
-.left-section,
-.right-section {
-  width: 20%; /* Fixed width for side sections */
-  padding: 10px;
+.left-section, .right-section {
+  width: 70%;
+  padding: 20px;
+  box-sizing: border-box;
   background-color: #4c3171;
   position: sticky;
-  top: 0; /* Stick to the top of the viewport */
-  height: 100vh; /* Full height of viewport */
-  overflow: auto; /* Allow internal scrolling */
+  top: 0;
+  height: calc(170vh - 150px); /* Adjust height based on the header/footer */
+  overflow-y: auto; /* Allow vertical scrolling */
 }
 
-/* Right Section */
-.right-section {
-  position: sticky;
-  right: 0; /* Stick to the right edge of the viewport */
-}
-
-/* Card Grid Container */
-.cards-container {
-  width: 70%; /* Central space for the card grid */
-  padding: 10px;
-  overflow: auto; /* Allow scrolling if content overflows */
-}
 
 .card-grid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  gap: 10px;
+  justify-content: center;
+  width: 100%; /* Adjust width based on layout needs */
 }
 
 .card {
-  background-color: #4c3171;
-  border: 1px solid #ddd;
+  border: 1px solid #8cd9f5ac;
   border-radius: 8px;
-  margin: 10px;
-  padding: 15px;
+  padding: 20px;
+  text-align: center;
+  background-color: #4800ad2d;
   width: calc(25% - 20px); /* Adjust width and margins for 4 cards per row */
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
-}
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-sizing: border-box;
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
-
 .card-logo {
-  width: 60px; /* Adjusted size for the logo */
+  width: 100px;
   height: auto;
-  margin-bottom: 10px;
 }
 
 .card-buttons {
-  display: flex;
-  justify-content: space-between;
+  margin-top: 20px;
 }
 
-.btn-apply,
-.btn-about {
-  padding: 8px 12px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px;
-  color: white;
-}
-
-.btn-apply {
-  background-color: #28a745;
-}
-
-.btn-apply:hover {
-  background-color: #218838;
-}
-
-.btn-about {
+.btn-apply, .btn-about {
   background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
 }
 
-.btn-about:hover {
+.btn-apply:hover, .btn-about:hover {
   background-color: #0056b3;
 }
 
-/* Footer Component */
-footer {
-  margin-top: 20px;
+.section-title {
+  margin-bottom: 20px;
+}
+
+.job-list, .internship-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.job-list li, .internship-list li {
+  background: #401264;
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.job-list li:hover, .internship-list li:hover {
+  background: #e1e1e1;
+}
+
+.footer {
+  background: #f5f5f5;
+  padding: 20px;
+  text-align: center;
+  color: #666;
+  margin-top: 20px; /* Pushes footer to the bottom */
 }

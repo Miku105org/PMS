@@ -5,8 +5,8 @@ function Hero() {
   return (
     <div className="hero-container">
       <div className="hero-content">
-        <h1>Welcome to the Future of Placements</h1>
-        <p>Streamlining the placement process for students and companies</p>
+        <h1>WELCOME TO THE PLACEMENT MANAGEMENT PORTAL</h1>
+        <p>One Source Destination for AKIT Placement Section</p>
       </div>
     </div>
   );

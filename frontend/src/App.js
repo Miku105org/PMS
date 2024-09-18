@@ -1,10 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './pages/Home'; // Ensure the correct path for Home.js
-import Login from './components/Login'; // Ensure the correct path for Login.js
-import Signup from './pages/Signup'; // Ensure the correct path for Signup.js
-import Navbar from './components/Navbar'; // Ensure the correct path for Navbar.js
-import Footer from './components/Footer'; // Ensure the correct path for Footer.js
+import Home from './pages/Home'; // Path to Home.js
+import Login from './components/Login'; // Path to Login.js
+import Signup from './pages/Signup'; // Path to Signup.js
+import Navbar from './components/Navbar'; // Path to Navbar.js
+import Footer from './components/Footer'; // Path to Footer.js
+import StudentDashboard from './dashboards/StudentDashboard'; // Path to StudentDashboard.js
+import InstituteDashboard from './dashboards/InstituteDashboard'; // Path to InstituteDashboard.js
+import CompanyDashboard from './dashboards/CompanyDashboard'; // Path to CompanyDashboard.js
 
 function App() {
   return (
@@ -24,6 +27,11 @@ function App() {
             
             {/* Signup page */}
             <Route path="/signup" element={<Signup />} />
+            
+            {/* Dashboards */}
+            <Route path="/student-dashboard" element={<StudentDashboard />} />
+            <Route path="/institute-dashboard" element={<InstituteDashboard />} />
+            <Route path="/company-dashboard" element={<CompanyDashboard />} />
           </Routes>
         </main>
 

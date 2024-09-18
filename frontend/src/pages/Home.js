@@ -16,21 +16,56 @@ function Home() {
       <button className="btn-resume-builder" onClick={handleOpenResumeBuilder}>
         Open Resume Builder
       </button>
-      {showResumeBuilder && <ResumeBuilder onClose={handleCloseResumeBuilder} />}
+      {/* {showResumeBuilder && <ResumeBuilder onClose={handleCloseResumeBuilder} />} */}
+
+      {/* Hero Section */}
+      <header className="hero-section">
+        <h1>Welcome to Our Job Platform</h1>
+        <p>Find your dream job or internship today</p>
+      </header>
 
       {/* Main content flex container */}
       <div className="content-wrapper">
         {/* Left Section */}
         <div className="left-section">
-          <div className="upcoming-jobs">
+          <div className="section-title">
             <h3>Upcoming Job Opportunities</h3>
-            <ul>
-              <li>Job 1</li>
-              <li>Job 2</li>
-              <li>Job 3</li>
-              {/* Add more job opportunities here */}
-            </ul>
           </div>
+          <ul className="job-list">
+            <li>Job 1</li>
+            <li>Job 2</li>
+            <li>Job 3</li>
+            <li>Job 1</li>
+            <li>Job 2</li>
+            <li>Job 3</li>
+            <li>Job 1</li>
+            <li>Job 2</li>
+            <li>Job 3</li>
+            <li>Job 1</li>
+            <li>Job 2</li>
+            <li>Job 3</li>
+            <li>Job 3</li>
+            <li>Job 1</li>
+            <li>Job 2</li>
+            <li>Job 3</li>
+            <li>Job 1</li>
+            <li>Job 2</li>
+            <li>Job 3</li>
+            <li>Job 1</li>
+            <li>Job 2</li>
+            <li>Job 3</li>
+            <li>Job 1</li>
+            <li>Job 2</li>
+            <li>Job 3</li>
+            <li>Job 1</li>
+            <li>Job 2</li>
+            <li>Job 3</li>
+            <li>Job 3</li>
+            <li>Job 1</li>
+            <li>Job 2</li>
+            <li>Job 3</li>
+            {/* Add more job opportunities here */}
+          </ul>
         </div>
 
         {/* Card Grid */}
@@ -50,22 +85,52 @@ function Home() {
 
         {/* Right Section */}
         <div className="right-section">
-          <div className="internships-section">
+          <div className="section-title">
             <h3>New Internship Opportunities</h3>
-            <ul>
-              <li>Internship 1</li>
-              <li>Internship 2</li>
-              <li>Internship 3</li>
-              {/* Add more internships here */}
-            </ul>
           </div>
+          <ul className="internship-list">
+            <li>Internship 1</li>
+            <li>Internship 2</li>
+            <li>Internship 3</li>
+            <li>Internship 4</li>
+            <li>Internship 5</li>
+            <li>Internship 6</li>
+            <li>Internship 1</li>
+            <li>Internship 2</li>
+            <li>Internship 3</li>
+            <li>Internship 4</li>
+            <li>Internship 5</li>
+            <li>Internship 6</li>
+            <li>Internship 3</li>
+            <li>Internship 4</li>
+            <li>Internship 5</li>
+            <li>Internship 6</li>
+            <li>Internship 1</li>
+            <li>Internship 2</li>
+            <li>Internship 3</li>
+            <li>Internship 4</li>
+            <li>Internship 5</li>
+            <li>Internship 6</li>
+            <li>Internship 1</li>
+            <li>Internship 2</li>
+            <li>Internship 3</li>
+            <li>Internship 4</li>
+            <li>Internship 5</li>
+            <li>Internship 6</li>
+            <li>Internship 3</li>
+            <li>Internship 4</li>
+            <li>Internship 5</li>
+            <li>Internship 6</li>
+            
+            {/* Add more internships here */}
+          </ul>
         </div>
       </div>
 
       {/* Footer Component */}
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
 
-export default Home;
+export default Home;

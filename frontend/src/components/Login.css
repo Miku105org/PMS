@@ -5,7 +5,7 @@ body {
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(135deg, #1a1a1a, #111b88);
   color: white;
-  overflow: hidden;
+  ;
 }
 
 /* Container */
@@ -15,7 +15,7 @@ body {
   justify-content: center;
   align-items: normal;
   height: 100vh;
-  overflow: hidden;
+  ;
 }
 
 /* Login Box */

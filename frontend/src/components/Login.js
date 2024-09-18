@@ -1,29 +1,79 @@
-// Login.js
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './Login.css'; // Make sure this path is correct
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './Login.css';
 
-const Login = ({ heading, account }) => {
+const Login = ({ heading }) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [role, setRole] = useState(''); // Role state
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch('http://localhost:5000/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password, role }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // Navigate to the appropriate dashboard based on the role
+        if (role === 'student') navigate('/dashboard/student');
+        if (role === 'company') navigate('/dashboard/company');
+        if (role === 'institute') navigate('/dashboard/institute');
+      } else {
+        alert(data.message); // Show error message if login fails
+      }
+    } catch (error) {
+      console.error('Login Error:', error);
+    }
+  };
+
   return (
     <div className="container">
       <div className="login-box">
         <h2>{heading}</h2>
-        <form action="1">
+        <form onSubmit={handleSubmit}>
           <div className="input-box">
-            <input type="email" required />
+            <input
+              type="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
             <label>Email</label>
           </div>
           <div className="input-box">
-            <input type="password" required />
+            <input
+              type="password"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
             <label>Password</label>
           </div>
-          <div className="forgot-pass">
-            <a href="1">Forgot your password?</a>
+          <div className="input-box">
+            <select
+              value={role}
+              onChange={(e) => setRole(e.target.value)}
+              required
+            >
+              <option value="" disabled>Select Role</option>
+              <option value="student">Student</option>
+              <option value="company">Company</option>
+              <option value="institute">Institute</option>
+            </select>
           </div>
-          <button type="submit" className="btn">{account}</button>
+          <div className="forgot-pass">
+            <a href="/forgot-password">Forgot your password?</a>
+          </div>
+          <button type="submit" className="btn">Login</button>
           <div className="signup-link">
-            {/* Updated to use Link for navigation */}
-            <Link to="/signup">Sign Up</Link>
+            <a href="/signup">Sign Up</a>
           </div>
         </form>
       </div>
