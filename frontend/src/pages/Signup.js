@@ -10,9 +10,9 @@ const Signup = () => {
     rollNumber: '',
     branch: '',
     yearOfStudy: '',
-    role: '', // Add role field
-    password: '', // Add password field
-    confirmPassword: '' // Add confirm password field
+    role: '',
+    password: '',
+    confirmPassword: ''
   });
 
   const [message, setMessage] = useState(''); // State for success/error message
@@ -24,6 +24,8 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Check if passwords match
     if (formData.password !== formData.confirmPassword) {
       setMessage('Passwords do not match.');
       return;
@@ -32,7 +34,9 @@ const Signup = () => {
     try {
       const response = await fetch('http://localhost:5000/api/auth/register', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json'
+        },
         body: JSON.stringify({
           firstName: formData.firstName,
           lastName: formData.lastName,
@@ -50,9 +54,21 @@ const Signup = () => {
 
       if (response.ok) {
         setMessage('Signup successful! Your data has been integrated into the backend.');
-        // Optionally redirect or clear the form
+        // Optionally clear form fields
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          rollNumber: '',
+          branch: '',
+          yearOfStudy: '',
+          role: '',
+          password: '',
+          confirmPassword: ''
+        });
       } else {
-        setMessage(`Error: ${data.message}`); // Show error message if signup fails
+        setMessage(`Error: ${data.message}`); // Display the error message from the backend
       }
     } catch (error) {
       console.error('Signup Error:', error);

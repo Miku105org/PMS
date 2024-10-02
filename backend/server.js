@@ -5,9 +5,10 @@ const dotenv = require('dotenv');
 
 // const DB= 'mongodb+srv://priyanshbhatt2003:<miku105>@cluster0.0ra9z.mongodb.net/placement?retryWrites=true&w=majority&appName=Cluster0'
 const DB  = `mongodb+srv://priyansh2003:miku105@cluster0.0ra9z.mongodb.net/placement`
+//const DB= mongodb+srv://priyansh2003:<miku105>@cluster0.ensmh.mongodb.net
 // Import routes
 const authRoutes = require('./routes/auth');
-const resumeRoutes = require('./routes/resume');
+//const resumeRoutes = require('./routes/resume');
 const companyRoutes = require('./routes/company');
 
 // Initialize Express app
@@ -30,8 +31,9 @@ mongoose.connect(DB, {
 .catch(err => console.error('Failed to connect to MongoDB', err));
 
 // Route handlers
-app.use('/api/v1/auth', authRoutes); // Authentication routes
-app.use('/api/v1/resume', resumeRoutes); // Resume management routes
+app.use(express.json());
+app.use('/api/auth', authRoutes); // Authentication routes
+//app.use('/api/v1/resume', resumeRoutes); // Resume management routes
 app.use('/api/companies', companyRoutes); // Company-related routes
 
 // Start server

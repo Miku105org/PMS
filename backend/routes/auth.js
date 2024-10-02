@@ -19,13 +19,15 @@ router.post('/register', async (req, res) => {
       return res.status(400).json({ message: 'User already exists' });
     }
 
-    // Create and save new user
+    // Hash password and create new user
     const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = new User({ firstName, lastName, email, password: hashedPassword, role });
     await newUser.save();
-    res.status(201).json(newUser);
+
+    // Return success response
+    res.status(201).json({ message: 'User registered successfully', user: newUser });
   } catch (err) {
-    res.status(400).json({ message: 'Error registering user', error: err });
+    res.status(500).json({ message: 'Error registering user', error: err.message });
   }
 });
 
@@ -45,7 +47,7 @@ router.post('/login', async (req, res) => {
       return res.status(400).json({ message: 'Invalid credentials' });
     }
 
-    // Optionally: Check role if needed for additional validation
+    // Check role for additional validation
     if (user.role !== role) {
       return res.status(400).json({ message: 'Role mismatch' });
     }
@@ -53,7 +55,7 @@ router.post('/login', async (req, res) => {
     // Respond with success
     res.status(200).json({ message: 'Login successful', role: user.role });
   } catch (err) {
-    res.status(400).json({ message: 'Error logging in', error: err });
+    res.status(500).json({ message: 'Error logging in', error: err.message });
   }
 });
 
