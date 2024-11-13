@@ -22,9 +22,9 @@ const Login = ({ heading }) => {
 
       if (response.ok) {
         // Navigate to the appropriate dashboard based on the role
-        if (role === 'student') navigate('/dashboard/student');
-        if (role === 'company') navigate('/dashboard/company');
-        if (role === 'institute') navigate('/dashboard/institute');
+        if (role === 'student') navigate('/student-dashboard');
+        if (role === 'company') navigate('/company-dashboard');
+        if (role === 'institute') navigate('/institute-dashboard');
       } else {
         alert(data.message); // Show error message if login fails
       }
@@ -36,8 +36,8 @@ const Login = ({ heading }) => {
   return (
     <div className="container">
       <div className="login-box">
-        <h2>{heading}</h2>
-        <form onSubmit={handleSubmit}>
+        <h2>{heading}</h2>    
+            <form onSubmit={handleSubmit}>
           <div className="input-box">
             <input
               type="email"

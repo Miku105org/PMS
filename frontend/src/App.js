@@ -8,6 +8,7 @@ import Footer from './components/Footer'; // Path to Footer.js
 import StudentDashboard from './dashboards/StudentDashboard'; // Path to StudentDashboard.js
 import InstituteDashboard from './dashboards/InstituteDashboard'; // Path to InstituteDashboard.js
 import CompanyDashboard from './dashboards/CompanyDashboard'; // Path to CompanyDashboard.js
+import JobListings from './pages/JobListings'; // Import the new component
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
             <Route path="/student-dashboard" element={<StudentDashboard />} />
             <Route path="/institute-dashboard" element={<InstituteDashboard />} />
             <Route path="/company-dashboard" element={<CompanyDashboard />} />
+            <Route path="/jobs" element={<JobListings />} />
           </Routes>
         </main>
 

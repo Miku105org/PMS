@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Home.css'; // Ensure this path is correct
 import microsoft from '../images/microsoft.png'; // Ensure this path is correct
-import ResumeBuilder from './ResumeBuilder'; // Import the ResumeBuilder component
+//import ResumeBuilder from './ResumeBuilder'; // Import the ResumeBuilder component
 import Footer from '../components/Footer'; // Import Footer component
 
 function Home() {
